@@ -1,0 +1,47 @@
+﻿@section PageStyles{
+    <link href="~/css/product-viewadd.css" rel="stylesheet" />
+}
+
+@section PageScripts{
+    <script src="~/js/client-viewadd.js"></script>
+}
+
+@*Declaração do "model" que será tratado como o objeto Produto*@
+
+@model UC12_AulaCRUD.Models.Client;
+@{
+    int id = 0;
+    string name = string.Empty;
+    string phone = string.Empty;
+    string email = string.Empty;
+    string operation = "add";
+
+    if (Model != null && Model.id > 0)
+    {
+        id = Model.id;
+        name = Model.name;
+        phone = Model.phone;
+        email = Model.email;
+        operation = "upd";
+    }
+}
+
+<h4>Cadastrar Cliente</h4>
+
+<form id="frmClients">
+    <div class="mb-3">
+        <label for="txtName" class="form-label">Nome</label>
+        <input id="txtName" value="@name" class="form-control" type="text">
+    </div>
+    <div class="mb-3">
+        <label for="txtPhone" class="form-label">Telefone</label>
+        <input id="txtPhone" value="@phone" type="text" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label for="txtEmail" class="form-label">Email</label>
+        <input id="txtEmail" value="@email" type="text" class="form-control">
+    </div>
+
+    <a class="btn btn-secondary" href="@Url.Action("ViewList", "Client")">voltar</a>
+    <button id="btnSave" type="submit" operation="@operation" itemid="@id" class="btn btn-primary">Salvar</button>
+</form>

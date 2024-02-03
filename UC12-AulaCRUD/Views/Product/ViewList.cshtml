@@ -1,0 +1,28 @@
+﻿@section PageStyles{
+    <link href="~/css/product-viewlist.css" rel="stylesheet" />
+    <link href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" rel="stylesheet" />
+}
+
+@section PageScripts{
+    <script src="~/js/product-viewlist.js"></script>
+    <script src="//cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+}
+
+<h4>Lista de Produtos</h4>
+
+<a class="btn btn-primary" href="@Url.Action("ViewAdd", "Product")">Adicionar</a>
+
+<hr class="mb-3" />
+
+<!--Tabela de Dados-->
+
+<table id="tbProducts" class="table table-striped table-hover" style="width:100%;">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Quantidade</th>
+            <th>Valor</th>
+            <th></th>
+        </tr>
+    </thead>
+</table>

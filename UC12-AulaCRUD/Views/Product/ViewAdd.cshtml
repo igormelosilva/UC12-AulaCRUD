@@ -1,0 +1,48 @@
+﻿@section PageStyles{
+    <link href="~/css/product-viewadd.css" rel="stylesheet" />
+}
+
+@section PageScripts{
+    <script src="~/js/product-viewadd.js"></script>
+}
+
+@*Declaração do "model" que será tratado como o objeto Produto*@
+
+@model UC12_AulaCRUD.Models.Product;
+@{
+    int id = 0;
+    string name = string.Empty;
+    string qtd = string.Empty;
+    string value = string.Empty;
+    string operation = "add";
+
+    if (Model != null && Model.id > 0)
+    {
+        id = Model.id;
+        name = Model.name;
+        qtd = Model.qtd.ToString();
+        value = Model.value.ToString();
+        operation = "upd";
+    }
+}
+
+
+<h4>Cadastrar Produto</h4>
+
+<form id="frmProducts">
+    <div class="mb-3">
+        <label for="txtName" class="form-label">Nome</label>
+        <input id="txtName" value="@name" class="form-control" type="text">
+    </div>
+    <div class="mb-3">
+        <label for="txtQtd" class="form-label">Quantidade</label>
+        <input id="txtQtd" value="@qtd" type="text" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label for="txtValue" class="form-label">Valor</label>
+        <input id="txtValue" value="@value" type="text" class="form-control">
+    </div>
+
+    <a class="btn btn-secondary" href="@Url.Action("ViewList", "Product")">voltar</a>
+    <button id="btnSave" type="submit" operation="@operation" itemid="@id" class="btn btn-primary">Salvar</button>
+</form>

@@ -1,0 +1,19 @@
+DROP TABLE IF EXISTS products;
+CREATE TABLE IF NOT EXISTS products(
+	id SERIAL PRIMARY KEY,
+	name VARCHAR(100),
+	qtd INTEGER,
+	value REAL
+);
+
+SELECT * FROM products;
+
+DROP TABLE IF EXISTS clients;
+CREATE TABLE IF NOT EXISTS clients(
+	id SERIAL PRIMARY KEY,
+	name VARCHAR(100),
+	phone VARCHAR(100),
+	email VARCHAR(100)
+);
+
+SELECT * FROM clients;
